@@ -1,26 +1,34 @@
-import { Component, signal, HostListener } from '@angular/core'; // Añadido HostListener
-import { CommonModule } from '@angular/common'; // Añadido CommonModule
+import { Component, signal, HostListener, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule], // Añadido CommonModule aquí
+  standalone: true,
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements AfterViewInit {
   protected readonly title = signal('documentacion-proyecto');
+  
+  // Color inicial corregido para que coincida con el CSS
+  protected bgColor: string = '#f8fafc';
 
-  // --- Lógica añadida para el color de fondo ---
-  protected bgColor = '#ffffff';
+  // Al cargar la vista, forzamos la detección de la sección actual
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.onWindowScroll();
+    }, 100);
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const sections = document.querySelectorAll('.doc-section');
-
+    
     sections.forEach((section: any) => {
       const rect = section.getBoundingClientRect();
-      // Si la sección está visible en el centro de la pantalla
+      // Detectamos si la sección está en el área visible (viewport)
       if (rect.top <= 300 && rect.bottom >= 300) {
         this.updateColor(section.id);
       }
@@ -29,13 +37,14 @@ export class App {
 
   private updateColor(id: string) {
     const colors: { [key: string]: string } = {
-      'inicio': '#f8fafc',        // Gris humo muy suave (evita el deslumbramiento)
-      'codigo': '#5a67d8',        // Índigo equilibrado
-      'funcionalidad': '#7e3af2'   // Violeta profundo suave
+      'inicio': '#f8fafc',
+      'codigo': '#6366f1',
+      'funcionalidad': '#8b5cf6'
     };
-    this.bgColor = colors[id] || '#f8fafc';
+    
+    const nextColor = colors[id];
+    if (nextColor && this.bgColor !== nextColor) {
+      this.bgColor = nextColor;
+    }
   }
-
-
-
 }
