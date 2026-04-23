@@ -1,3 +1,85 @@
-<nav-bar></nav-bar>
+<div class="main-container relative" [style.background-color]="bgColor">
+
+    <div class="bg-food-pattern"></div>
+
+    <div class="support-fab tooltip tooltip-left" data-tip="soporte@eatq.com">
+        <a href="mailto:soporte@eatq.com"
+            class="btn btn-circle btn-ghost bg-slate-200/30 backdrop-blur-md border border-slate-300/30 shadow-xl hover:bg-slate-300/40 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+        </a>
+    </div>
+
+    <section id="inicio" class="doc-section">
+        <div class="text-center z-10 px-4">
+            <h1 [class.text-slate-900]="bgColor === '#f8fafc'" [class.text-white]="bgColor !== '#f8fafc'"
+                class="text-7xl md:text-9xl font-extrabold tracking-tighter transition-colors duration-1000">
+                EatQ Docs
+            </h1>
+            <p [class.text-slate-600]="bgColor === '#f8fafc'" [class.text-indigo-100]="bgColor !== '#f8fafc'"
+                class="mt-8 text-xl md:text-2xl max-w-2xl mx-auto transition-colors duration-1000 font-medium leading-relaxed">
+                La documentación completa de nuestra plataforma de cuidado y gestión de alimentación
+            </p>
+
+            <div class="mt-12 flex flex-col items-center gap-4">
+                <button class="android-btn group flex items-center gap-3 text-lg">
+                    <span class="text-2xl group-hover:scale-110 transition-transform">🤖</span>
+                    Descargar App Android
+                </button>
+                <span [class.text-slate-400]="bgColor === '#f8fafc'" [class.text-slate-300]="bgColor !== '#f8fafc'"
+                    class="text-sm font-semibold tracking-widest uppercase transition-colors duration-1000">
+                    Versión estable 1.0.4
+                </span>
+            </div>
+
+            <div class="mt-16 animate-bounce opacity-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section id="codigo" class="doc-section">
+        <div class="z-10 w-full max-w-4xl px-6">
+            <h2 class="text-4xl font-bold text-white mb-8 text-center tracking-tight">Implementación</h2>
+            <div class="mockup-window border bg-slate-900/40 backdrop-blur-xl shadow-2xl overflow-hidden">
+                <div class="flex flex-col bg-slate-950/80 p-8 font-mono text-sm md:text-base text-blue-300">
+                    <p class="text-slate-500 mb-2">// Inicializando el núcleo de EatQ</p>
+                    <p><span class="text-purple-400">import</span> &#123; <span
+                            class="text-yellow-300">EatQEngine</span> &#125; <span class="text-purple-400">from</span>
+                        <span class="text-green-400">'@eatq/core'</span>;</p>
+                    <br>
+                    <p><span class="text-blue-400">const</span> app = <span class="text-purple-400">new</span> <span
+                            class="text-yellow-300">EatQEngine</span>(&#123; apiKey: <span
+                            class="text-green-400">'TU_API_KEY'</span> &#125;);</p>
+                    <p>app.<span class="text-yellow-300">start</span>();</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="funcionalidad" class="doc-section">
+        <div class="z-10 text-center px-4">
+            <h2 class="text-4xl font-bold text-white mb-10 tracking-tight">Métricas</h2>
+            <div
+                class="stats stats-vertical lg:stats-horizontal shadow-2xl bg-white/10 backdrop-blur-md text-white rounded-3xl overflow-hidden border border-white/20">
+                <div class="stat p-10">
+                    <div class="stat-title text-indigo-100 uppercase text-xs font-bold tracking-widest">Respuesta</div>
+                    <div class="stat-value text-5xl font-black">0.2ms</div>
+                </div>
+                <div class="stat p-10">
+                    <div class="stat-title text-indigo-100 uppercase text-xs font-bold tracking-widest">Uptime</div>
+                    <div class="stat-value text-5xl font-black">99.9%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 <router-outlet />
