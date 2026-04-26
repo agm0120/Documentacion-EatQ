@@ -1,0 +1,28 @@
+<footer class="footer-container">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <span class="footer-logo">EatQ</span>
+      <p class="footer-tagline">La nutrición, a través de tu lente.</p>
+    </div>
+
+    <nav class="footer-nav">
+      <span class="footer-nav-title">Contenido</span>
+      <button (click)="scrollTo('inicio')">Inicio</button>
+      <button (click)="scrollTo('features')">Features</button>
+      <button (click)="scrollTo('guia')">Guía de uso</button>
+      <button (click)="scrollTo('faqs')">FAQs</button>
+    </nav>
+
+    <div class="footer-contact">
+      <span class="footer-nav-title">Contacto</span>
+      <a href="mailto:soporte@eatq.com">soporte&#64;eatq.com</a>
+      <span class="footer-badge">App en desarrollo</span>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {{ year }} EatQ. Todos los derechos reservados.</span>
+  </div>
+</footer>

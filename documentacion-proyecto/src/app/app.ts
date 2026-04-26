@@ -1,22 +1,25 @@
-import { Component, HostListener, AfterViewInit, inject, effect } from '@angular/core';
+import { Component, HostListener, AfterViewInit, inject, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
 import { HeroComponent } from './components/hero/hero';
 import { FeaturesComponent } from './components/features/features';
 import { GuiaComponent } from './components/guia/guia';
 import { FaqsComponent } from './components/faqs/faqs';
+import { FooterComponent } from './components/footer/footer';
+import { ToastComponent } from './components/toast/toast';
 import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, HeroComponent, FeaturesComponent, GuiaComponent, FaqsComponent],
+  imports: [RouterOutlet, NavbarComponent, HeroComponent, FeaturesComponent, GuiaComponent, FaqsComponent, FooterComponent, ToastComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
   private theme = inject(ThemeService);
   protected bgColor: string = '#f8fafc';
+  protected emailCopied = signal(false);
 
   private readonly lightColors: { [key: string]: string } = {
     'inicio': '#f8fafc',
@@ -61,6 +64,13 @@ export class App implements AfterViewInit {
     if (this.bgColor === '#f8fafc') return '#1e293b';
     if (this.bgColor === '#0f172a') return '#e2e8f0';
     return '#ffffff';
+  }
+
+  protected copyEmail() {
+    navigator.clipboard.writeText('soporte@eatq.com').then(() => {
+      this.emailCopied.set(true);
+      setTimeout(() => this.emailCopied.set(false), 2000);
+    });
   }
 
   private updateColor(id: string) {
