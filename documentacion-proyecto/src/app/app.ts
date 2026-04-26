@@ -1,50 +1,70 @@
-import { Component, signal, HostListener, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, AfterViewInit, inject, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar';
+import { HeroComponent } from './components/hero/hero';
+import { FeaturesComponent } from './components/features/features';
+import { GuiaComponent } from './components/guia/guia';
+import { FaqsComponent } from './components/faqs/faqs';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, NavbarComponent, HeroComponent, FeaturesComponent, GuiaComponent, FaqsComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
-  protected readonly title = signal('documentacion-proyecto');
-  
-  // Color inicial corregido para que coincida con el CSS
+  private theme = inject(ThemeService);
   protected bgColor: string = '#f8fafc';
 
-  // Al cargar la vista, forzamos la detección de la sección actual
+  private readonly lightColors: { [key: string]: string } = {
+    'inicio': '#f8fafc',
+    'features': '#6366f1',
+    'guia': '#4f46e5',
+    'faqs': '#7c3aed'
+  };
+
+  private readonly darkColors: { [key: string]: string } = {
+    'inicio': '#0f172a',
+    'features': '#1e1b4b',
+    'guia': '#1e1b4b',
+    'faqs': '#2e1065'
+  };
+
+  private viewReady = false;
+
+  constructor() {
+    effect(() => {
+      this.theme.isDark();
+      if (this.viewReady) this.onWindowScroll();
+    });
+  }
+
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.onWindowScroll();
-    }, 100);
+    this.viewReady = true;
+    setTimeout(() => this.onWindowScroll(), 100);
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const sections = document.querySelectorAll('.doc-section');
-    
-    sections.forEach((section: any) => {
+    sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      // Detectamos si la sección está en el área visible (viewport)
       if (rect.top <= 300 && rect.bottom >= 300) {
         this.updateColor(section.id);
       }
     });
   }
 
+  protected getTextColor(): string {
+    if (this.bgColor === '#f8fafc') return '#1e293b';
+    if (this.bgColor === '#0f172a') return '#e2e8f0';
+    return '#ffffff';
+  }
+
   private updateColor(id: string) {
-    const colors: { [key: string]: string } = {
-      'inicio': '#f8fafc',
-      'codigo': '#6366f1',
-      'funcionalidad': '#8b5cf6'
-    };
-    
-    const nextColor = colors[id];
-    if (nextColor && this.bgColor !== nextColor) {
-      this.bgColor = nextColor;
-    }
+    const colors = this.theme.isDark() ? this.darkColors : this.lightColors;
+    this.bgColor = colors[id] || this.bgColor;
   }
 }

@@ -1,144 +1,23 @@
-<div class="main-container relative" [style.background-color]="bgColor"
-    [style.color]="bgColor === '#f8fafc' ? '#1e293b' : '#ffffff'">
+<div class="main-container"
+     [style.background-color]="bgColor"
+     [style.color]="getTextColor()">
 
-    <svg class="food-icon float-1 w-24 h-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-        <path d="M12 6v6l4 2" />
-    </svg>
-    <svg class="food-icon float-2 w-32 h-32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path
-            d="M6 15H4a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2h2m12 6h2a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-2M6 12h12M6 7v10M18 7v10" />
-    </svg>
-    <svg class="food-icon float-3 w-28 h-28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-        <circle cx="12" cy="13" r="4" />
-    </svg>
-    <svg class="food-icon float-4 w-20 h-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
-        <line x1="3" y1="10" x2="21" y2="10" />
-    </svg>
+  <svg class="food-icon float-1 w-32 h-32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+  <svg class="food-icon float-2 w-48 h-48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 15H4a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2h2m12 6h2a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-2M6 12h12M6 7v10M18 7v10"/></svg>
+  <svg class="food-icon float-3 w-36 h-36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+  <svg class="food-icon float-4 w-40 h-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2"/><path d="M18 2h3v13h-3"/><path d="M21 15a3 3 0 1 1-6 0"/></svg>
 
-    <div class="support-fab tooltip tooltip-left" data-tip="soporte@eatq.com">
-        <a href="mailto:soporte@eatq.com"
-            class="btn btn-circle btn-ghost bg-slate-200/40 backdrop-blur-md border border-slate-400/20 shadow-2xl hover:bg-slate-300/60 transition-all duration-300 group">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-current group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 10-2 2v10a2 2 0 002 2z" />
-            </svg>
-        </a>
-    </div>
+  <div class="support-fab">
+    <a href="mailto:soporte@eatq.com" class="btn btn-circle bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl hover:bg-white/20 text-current">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+    </a>
+  </div>
 
-    <section id="inicio" class="doc-section">
-        <div class="text-center z-10 px-4">
-            <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter transition-colors duration-1000">
-                EatQ Docs
-            </h1>
-
-            <p
-                class="mt-8 text-xl md:text-2xl max-w-4xl mx-auto opacity-90 transition-colors duration-1000 font-medium leading-relaxed">
-                Nuestra aplicación utiliza inteligencia artificial para analizar tus comidas mediante fotos,
-                ayudándote a equilibrar tus nutrientes diarios y registrar tus entrenamientos de forma sencilla.
-            </p>
-
-            <div class="mt-12 flex flex-col items-center gap-4">
-                <button class="android-btn group flex items-center gap-3 text-lg">
-                    <span class="text-2xl group-hover:rotate-12 transition-transform">🤖</span>
-                    Descargar App Android
-                </button>
-                <span class="text-sm font-semibold tracking-widest uppercase opacity-60">
-                    Versión oficial v1.0.4
-                </span>
-            </div>
-
-            <div class="mt-16 animate-bounce opacity-30">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </div>
-        </div>
-    </section>
-
-    <section id="codigo" class="doc-section">
-        <div class="z-10 w-full max-w-4xl px-6 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6 tracking-tight">IA Vision: Escaneo de platos</h2>
-            <p class="text-indigo-100 mb-10 max-w-xl mx-auto font-medium">Usa la cámara para que nuestra IA identifique
-                qué te falta comer hoy para llegar a tus objetivos.</p>
-
-            <div class="mockup-window border bg-slate-900/40 backdrop-blur-xl shadow-2xl overflow-hidden text-left">
-                <div class="flex flex-col bg-slate-950/80 p-8 font-mono text-sm md:text-base text-blue-300">
-                    <p class="text-slate-500 mb-2">// Analizando imagen del plato...</p>
-                    <p><span class="text-blue-400">const</span> analysis = <span class="text-purple-400">await</span>
-                        eatq.<span class="text-yellow-300">scanMeal</span>(photo);</p>
-                    <br>
-                    <p><span class="text-emerald-400">console</span>.<span
-                            class="text-yellow-200">log</span>(analysis.recommendation); </p>
-                    <p class="text-slate-400 pl-4">// Resultado: "Añade una fuente de proteína magra"</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="funcionalidad" class="doc-section">
-        <div class="z-10 w-full max-w-5xl px-4">
-            <h2 class="text-4xl font-bold text-white mb-12 text-center tracking-tight">Tu Progreso en EatQ</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/20 transition-all cursor-default">
-                    <div
-                        class="w-14 h-14 bg-blue-400/20 rounded-2xl flex items-center justify-center mb-6 text-blue-400">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Ejercicios Básicos</h3>
-                    <p class="text-indigo-100 text-sm leading-relaxed">Registro sencillo de tus rutinas fundamentales
-                        para complementar tu alimentación.</p>
-                </div>
-
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/20 transition-all scale-105 shadow-2xl border-emerald-500/30">
-                    <div
-                        class="w-14 h-14 bg-emerald-400/20 rounded-2xl flex items-center justify-center mb-6 text-emerald-400">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Escaneo IA</h3>
-                    <p class="text-indigo-100 text-sm leading-relaxed">Nuestra IA identifica qué nutrientes te faltan
-                        simplemente analizando una foto de tu comida.</p>
-                </div>
-
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/20 transition-all">
-                    <div
-                        class="w-14 h-14 bg-purple-400/20 rounded-2xl flex items-center justify-center mb-6 text-purple-400">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Historial Diario</h3>
-                    <p class="text-indigo-100 text-sm leading-relaxed">Repasa tus comidas y ejercicios de los últimos
-                        días para ver tu evolución y cumplir tus metas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <app-navbar />
+  <app-hero />
+  <app-features />
+  <app-guia />
+  <app-faqs />
 </div>
 
 <router-outlet />

@@ -1,0 +1,32 @@
+<section id="faqs" class="doc-section">
+  <div class="z-10 w-full max-w-3xl px-6">
+    <h2 class="text-5xl font-black mb-16 text-center tracking-tight">Preguntas</h2>
+    <div class="space-y-4">
+      @for (faq of faqs(); track faq.q; let i = $index) {
+        <div class="rounded-3xl overflow-hidden border border-white/10 backdrop-blur-md transition-all duration-300"
+             [style.backgroundColor]="faq.open ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)'">
+          <button
+            class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-xl cursor-pointer"
+            style="background: none; border: none; color: inherit; font-family: inherit;"
+            (click)="toggle(i)">
+            {{ faq.q }}
+            <svg
+              class="w-5 h-5 flex-shrink-0 ml-4"
+              style="transition: transform 0.3s ease;"
+              [style.transform]="faq.open ? 'rotate(45deg)' : 'rotate(0deg)'"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div
+            class="overflow-hidden"
+            style="transition: max-height 0.35s ease, opacity 0.35s ease;"
+            [style.maxHeight]="faq.open ? '200px' : '0px'"
+            [style.opacity]="faq.open ? '1' : '0'">
+            <p class="px-8 pb-6 opacity-70 leading-relaxed">{{ faq.a }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
