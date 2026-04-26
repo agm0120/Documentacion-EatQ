@@ -1,0 +1,78 @@
+.feature-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.75rem;
+  padding: 2.5rem 2rem 2.25rem;
+  overflow: hidden;
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(to right, #10b981, #6366f1);
+  opacity: 0.35;
+  transition: left 0.4s ease, right 0.4s ease, opacity 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.card-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  opacity: 0.18;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.card-icon {
+  font-size: 2rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.875rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+
+.feature-card:hover .card-icon {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.08);
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.card-desc {
+  font-size: 0.925rem;
+  line-height: 1.75;
+  opacity: 0.6;
+}

@@ -1,23 +1,31 @@
 <section id="features" class="doc-section">
   <div class="z-10 w-full max-w-6xl px-6">
-    <h2 reveal class="text-5xl md:text-7xl font-black mb-16 text-center tracking-tight">Potencial de EatQ</h2>
+    <h2 reveal class="text-5xl md:text-7xl font-black mb-4 text-center tracking-tight">Potencial de EatQ</h2>
+    <p reveal [revealDelay]="100" class="text-center opacity-50 font-medium mb-16 text-lg">Todo lo que la app hará por ti</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div reveal [revealDelay]="0" class="space-y-6">
-        <div class="text-5xl">📸</div>
-        <h3 class="text-3xl font-bold">Escaneo IA</h3>
-        <p class="text-lg opacity-70 leading-relaxed">Nuestra tecnología Vision analiza cada nutriente de tu plato al instante mediante una simple fotografía.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div reveal [revealDelay]="0" class="feature-card">
+        <span class="card-number">01</span>
+        <div class="card-icon">📸</div>
+        <h3 class="card-title">Escaneo IA</h3>
+        <p class="card-desc">Nuestra tecnología Vision analiza cada nutriente de tu plato al instante mediante una simple fotografía.</p>
       </div>
-      <div reveal [revealDelay]="120" class="space-y-6">
-        <div class="text-5xl">⚡</div>
-        <h3 class="text-3xl font-bold">Balance Real</h3>
-        <p class="text-lg opacity-70 leading-relaxed">Calculamos Proteínas, Carbohidratos y Grasas para decirte exactamente qué te falta comer hoy.</p>
+
+      <div reveal [revealDelay]="130" class="feature-card">
+        <span class="card-number">02</span>
+        <div class="card-icon">⚡</div>
+        <h3 class="card-title">Balance Real</h3>
+        <p class="card-desc">Calculamos Proteínas, Carbohidratos y Grasas para decirte exactamente qué te falta comer hoy.</p>
       </div>
-      <div reveal [revealDelay]="240" class="space-y-6">
-        <div class="text-5xl">📈</div>
-        <h3 class="text-3xl font-bold">Historial</h3>
-        <p class="text-lg opacity-70 leading-relaxed">Repasa tus progresos de los últimos días y ajusta tus rutinas de ejercicio básico con facilidad.</p>
+
+      <div reveal [revealDelay]="260" class="feature-card">
+        <span class="card-number">03</span>
+        <div class="card-icon">📈</div>
+        <h3 class="card-title">Historial</h3>
+        <p class="card-desc">Repasa tus progresos de los últimos días y ajusta tus rutinas de ejercicio básico con facilidad.</p>
       </div>
+
     </div>
   </div>
 </section>

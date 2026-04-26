@@ -5,6 +5,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
   selector: 'app-features',
   standalone: true,
   imports: [RevealDirective],
-  templateUrl: './features.html'
+  templateUrl: './features.html',
+  styleUrl: './features.css'
 })
 export class FeaturesComponent {}
