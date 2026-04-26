@@ -71,3 +71,42 @@ body {
   right: 40px;
   z-index: 100;
 }
+
+.support-link {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: padding 0.35s ease, gap 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.support-link:hover {
+  padding: 0.75rem 1.25rem;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.support-email {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: max-width 0.35s ease, opacity 0.25s ease;
+}
+
+.support-link:hover .support-email {
+  max-width: 200px;
+  opacity: 1;
+}
