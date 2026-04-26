@@ -18,14 +18,14 @@ import { ThemeService } from './services/theme.service';
 })
 export class App implements AfterViewInit {
   private theme = inject(ThemeService);
-  protected bgColor: string = '#f8fafc';
+  protected bgColor: string = '#dbeafe';
   protected emailCopied = signal(false);
 
   private readonly lightColors: { [key: string]: string } = {
-    'inicio': '#f8fafc',
-    'features': '#6366f1',
-    'guia': '#4f46e5',
-    'faqs': '#7c3aed'
+    'inicio': '#dbeafe',
+    'features': '#e0e7ff',
+    'guia': '#ede9fe',
+    'faqs': '#f3e8ff'
   };
 
   private readonly darkColors: { [key: string]: string } = {
@@ -61,9 +61,10 @@ export class App implements AfterViewInit {
   }
 
   protected getTextColor(): string {
-    if (this.bgColor === '#f8fafc') return '#1e293b';
-    if (this.bgColor === '#0f172a') return '#e2e8f0';
-    return '#ffffff';
+    if (this.theme.isDark()) {
+      return this.bgColor === '#0f172a' ? '#e2e8f0' : '#ffffff';
+    }
+    return '#1e293b';
   }
 
   protected copyEmail() {
