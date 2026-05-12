@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-hero',
@@ -6,12 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './hero.html'
 })
 export class HeroComponent {
-  toast: any;
+  private toast = inject(ToastService);
 
   onDownload() {
-    this.toast.show('Descargando... si no se descarga presiona F12 e intenta de nuevo');
+    this.toast.show('Descargando EatQ...', '📥');
     const link = document.createElement('a');
-    link.href = '/app-release.apk';
+    link.href = 'app-release.apk';
     link.download = 'EatQ.apk';
     document.body.appendChild(link);
     link.click();
