@@ -9,7 +9,16 @@ import { ToastService } from '../../services/toast.service';
 export class HeroComponent {
   private toast = inject(ToastService);
 
+  private isAndroid(): boolean {
+    return /android/i.test(navigator.userAgent);
+  }
+
   onDownload() {
+    if (!this.isAndroid()) {
+      this.toast.show('Esta app es solo para Android 📱', '⚠️');
+      return;
+    }
+
     this.toast.show('Descargando EatQ...', '📥');
     const link = document.createElement('a');
     link.href = 'app-release.apk';
