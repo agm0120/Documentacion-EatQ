@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ToastService } from '../../services/toast.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -7,9 +6,15 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './hero.html'
 })
 export class HeroComponent {
-  private toast = inject(ToastService);
+  toast: any;
 
   onDownload() {
-    this.toast.show('Próximamente en Google Play', '🚀');
+    this.toast.show('Descargando... si no se descarga presiona F12 e intenta de nuevo');
+    const link = document.createElement('a');
+    link.href = '/app-release.apk';
+    link.download = 'EatQ.apk';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
