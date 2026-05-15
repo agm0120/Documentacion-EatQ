@@ -15,11 +15,11 @@ export class HeroComponent {
 
   onDownload() {
     if (!this.isAndroid()) {
-      this.toast.show('Esta app es solo para Android 📱', '⚠️');
+      this.toast.show('Esta app es solo para Android');
       return;
     }
 
-    this.toast.show('Descargando EatQ...', '📥');
+    this.toast.show('Descargando EatQ...');
     const link = document.createElement('a');
     link.href = 'app-release.apk';
     link.download = 'EatQ.apk';
