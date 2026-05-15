@@ -1,6 +1,7 @@
 <section id="inicio" class="doc-section">
   <div class="text-center z-10 px-4 max-w-6xl">
-    <h1 class="text-9xl md:text-[12rem] font-black tracking-tighter leading-none mb-6 bg-gradient-to-tr from-emerald-500 via-emerald-400 to-indigo-500 bg-clip-text text-transparent italic">
+    <h1
+      class="text-9xl md:text-[12rem] font-black tracking-tighter leading-none mb-6 bg-gradient-to-tr from-emerald-500 via-emerald-400 to-indigo-500 bg-clip-text text-transparent italic">
       EatQ
     </h1>
 
@@ -15,7 +16,10 @@
     </div>
 
     <button class="android-btn" (click)="onDownload()">
-      🤖 Descargar App
+      <div class="flex items-center">
+      <img src="descargar.png" alt="Icono Descargar" class="w-6 h-6 mr-2">
+      <p>Descargar App</p>
+      </div>
     </button>
   </div>
 </section>
